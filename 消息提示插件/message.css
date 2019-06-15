@@ -1,0 +1,85 @@
+#message-content{
+    position: fixed;
+    top: 100px;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    flex-direction: column;
+}
+#message-content .message {
+    background: #fff;
+    margin: 5px auto;
+    padding: 0 10px;
+    height: 40px;
+    box-shadow: 0 0 10px 0 #eee;
+    font-size: 14px;
+    border-radius: 3px;
+
+    /* 让消息内部的三个元素（图标、文本、关闭按钮）可以垂直水平居中 */
+    display: flex;
+    align-items: center;
+    /* 增加一个过渡属性，当message元素的高度和margin变化时候将会有一个过渡动画 */
+    transition: height 0.2s, margin 0.2s;
+}
+#message-content .message .text {
+    color: #333;
+    padding: 0 20px 0 10px;
+}
+#message-content .message .icon-loading{
+    color: #0482f8;
+    animation:loading-rotate 3s linear infinite;
+}
+#message-content .message .icon-waring{
+    color: #ceca07;
+}
+#message-content .message .icon-infor{
+    color: #0482f8;
+}
+#message-content .message .icon-close{
+    color: #999;
+    cursor: pointer;
+}
+#message-content .message .icon-success {
+    color: #06a35a;
+}
+#message-content .message .icon-error {
+    color: #f83504;
+}
+#message-content .message-move-in{
+    animation: message-move-in 0.3s ease-in-out;
+}
+#message-content .message-move-out{
+    animation: message-move-out 0.3s ease-in-out;
+    /* 让动画结束后保持结束状态 */
+    animation-fill-mode: forwards;
+}
+@keyframes message-move-in {
+    0%{
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes message-move-out {
+    0%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100%{
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+}
+@keyframes loading-rotate{
+    from{
+        -webkit-transform: rotate(0deg);
+    }
+    to{
+        -webkit-transform: rotate(360deg);
+    }
+}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_1242640_o2biyb0xty7.css">
+    <link rel="stylesheet" href="./message.css">
+    <script src="./message.js"></script>
+</head>
+<body>
+    <button class="btn1">加载</button>
+    <button class="btn2">警告</button>
+    <button class="btn3">普通</button>
+    <button class="btn4">成功</button>
+    <button class="btn5">错误</button>
+    <button class="btn6">手动关闭</button>
+    <button class="btn7">2s后主动触发关闭</button>
+    <script>
+        document.querySelector('.btn1').addEventListener("click",function () {
+            var message=new Message();
+            message.show({
+                type: 'loading',
+                text: '加载中。。。',
+                isCloseBtn:false,
+                time:2000,//设置显示时间，为0 时 不消失
+            });
+        })
+        document.querySelector('.btn2').addEventListener("click",function () {
+            var message=new Message();
+            message.show({
+                type: 'waring',
+                text: '警告',
+                isCloseBtn:false,
+                time:2000,//设置显示时间，为0 时 不消失
+            });
+        })
+        document.querySelector('.btn3').addEventListener("click",function () {
+            var message=new Message();
+            message.show({
+                type: 'infor',
+                text: '普通消息',
+                isCloseBtn:false,
+                time:2000,//设置显示时间，为0 时 不消失
+            });
+        })
+        document.querySelector('.btn4').addEventListener("click",function () {
+            var message=new Message();
+            message.show({
+                type: 'loading',
+                text: '成功',
+                isCloseBtn:false,
+                time:2000,//设置显示时间，为0 时 不消失
+            });
+        })
+        document.querySelector('.btn5').addEventListener("click",function () {
+            var message=new Message();
+            message.show({
+                type: 'error',
+                text: '报错',
+                isCloseBtn:false,
+                time:2000,//设置显示时间，为0 时 不消失
+            });
+        })
+        document.querySelector('.btn6').addEventListener("click",function () {
+            var message=new Message();
+            message.show({
+                type: 'loading',
+                text: '点击关闭',
+                isCloseBtn:true,//
+                time:0,//设置显示时间，为0 时 不消失
+            });
+        })
+
+        document.querySelector('.btn7').addEventListener("click",function () {
+            var message=new Message();
+            message.show({
+                type: 'loading',
+                text: '主动触发关闭',
+            });
+            message.close();
+        })
+
+    </script>
+</body>
+</html>
